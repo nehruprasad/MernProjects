@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto mt-10">
+        <h1 class="text-3xl font-bold">Login</h1>
+        <form action="/login" method="POST" class="mt-4">
+            <input type="text" name="username" placeholder="Username" required class="border rounded p-2 w-full mb-4" />
+            <input type="password" name="password" placeholder="Password" required class="border rounded p-2 w-full mb-4" />
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Login</button>
+        </form>
+        <% if (message) { %>
+            <p class="text-red-500"><%= message %></p>
+        <% } %>
+        <p class="mt-4">Don't have an account? <a href="/register" class="text-blue-500">Register here</a>.</p>
+    </div>
+</body>
+</html>

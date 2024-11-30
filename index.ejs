@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technology News</title>
+  <style>
+    body { font-family: Arial, sans-serif; }
+    h1 { color: #333; }
+    ul { list-style: none; padding: 0; }
+    li { margin-bottom: 20px; border-bottom: 1px solid #ddd; padding-bottom: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Latest Technology News</h1>
+  <ul>
+    <% if (articles && articles.length > 0) { %>
+      <% articles.forEach(article => { %>
+        <li>
+          <h2><%= article.title %></h2>
+          <p><%= article.description %></p>
+          <p><a href="<%= article.url %>" target="_blank">Read more</a></p>
+        </li>
+      <% }) %>
+    <% } else { %>
+      <p>No articles available at the moment.</p>
+    <% } %>
+  </ul>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search News</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md fixed w-full z-10">
+        <div class="container mx-auto flex justify-between items-center p-4">
+            <div class="text-xl font-bold text-blue-600">
+                News
+            </div>
+            <div class="flex space-x-4">
+                <a href="/" class="text-gray-700 hover:text-blue-500">NewsFeed</a>
+                <a href="/search" class="text-gray-700 hover:text-blue-500">Search</a>
+                <a href="#" class="text-gray-700 hover:text-blue-500">Science</a>
+                <a href="#" class="text-gray-700 hover:text-blue-500">Technology</a>
+                <a href="#" class="text-gray-700 hover:text-blue-500">Sports</a>
+                <a href="#" class="text-gray-700 hover:text-blue-500">Business</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto mt-16 p-4">
+        <h1 class="text-2xl font-bold">Search News</h1>
+        <form action="/search" method="POST" class="mt-4">
+            <input type="text" name="query" class="border border-gray-300 px-4 py-2 rounded-md" placeholder="Enter search term" required>
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md">Search</button>
+        </form>
+    </div>
+</body>
+</html>

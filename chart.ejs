@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Article Chart</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-100">
+
+    <div class="container mx-auto mt-10">
+        <h1 class="text-2xl font-bold">News Articles Chart</h1>
+        <canvas id="newsChart" class="mt-4"></canvas>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('newsChart').getContext('2d');
+        fetch('/chart-data')
+            .then(response => response.json())
+            .then(data => {
+                new Chart(ctx, {
+                    type: 'bar', // You can change the chart type here (e.g., 'line', 'pie', etc.)
+                    data: {
+                        labels: data.labels,
+                        datasets: [{
+                            label: data.datasets[0].label,
+                            data: data.datasets[0].data,
+                            backgroundColor: data.datasets[0].backgroundColor,
+                            borderColor: data.datasets[0].borderColor,
+                            borderWidth: data.datasets[0].borderWidth
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            })
+            .catch(error => console.error('Error fetching chart data:', error));
+    </script>
+</body>
+</html>
+        
